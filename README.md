@@ -83,4 +83,3 @@ Baserunning event that occurs during the plate appearance.
 ## Initial Clustering
 We will begin by clustering the success/failure rate for each pitch type for each location.
 Success/failure will be determined by 
-
