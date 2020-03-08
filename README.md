@@ -28,6 +28,7 @@ Ideally, we would like to be able to analyze and display all MLB hitters with an
 Pitch Types not present in this dataset: AB, AS, EP, FO, GY, IN, NP, PO, SC, UN
 
 ### Events: Result of Plate Appearance
+Baserunning event that occurs during the plate appearance. 
 * catcher_interf
 * caught_stealing_2b
 * double
@@ -65,6 +66,18 @@ Pitch Types not present in this dataset: AB, AS, EP, FO, GY, IN, NP, PO, SC, UN
 * pitchout
 * swinging_strike
 * swinging_strike_blocked
+
+### Type: Pitch Result 
+* B: ball
+* S: strike
+* X: in play
+
+### Batted Ball Type
+* fly_ball
+* ground_ball
+* line_drive
+* null
+* popup
 
 
 ## Initial Clustering
