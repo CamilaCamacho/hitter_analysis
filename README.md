@@ -24,6 +24,7 @@ Ideally, we would like to be able to analyze and display all MLB hitters with an
 * null
 * SI: Sinker (synonymous with FT)
 * SL: Slider 
+Pitch Types not present in this dataset: AB, AS, EP, FO, GY, IN, NP, PO, SC, UN
 
 ## Initial Clustering
 We will begin by clustering the success/failure rate for each pitch type for each location.
