@@ -21,10 +21,51 @@ Ideally, we would like to be able to analyze and display all MLB hitters with an
 * FT: Two-Seam Fastball (synonymous with SI)
 * KC: Knuckle Curve
 * KN: Knuckleball
-* null
 * SI: Sinker (synonymous with FT)
 * SL: Slider 
+* null
+
 Pitch Types not present in this dataset: AB, AS, EP, FO, GY, IN, NP, PO, SC, UN
+
+### Events: Result of Plate Appearance
+* catcher_interf
+* caught_stealing_2b
+* double
+* double_play
+* field_error
+* field_out
+* fielders_choice 
+* fielders_choice_out
+* force_out
+* grounded_into_double_play
+* hit_by_pitch
+* home_run
+* null
+* other_out
+* pickoff_caught_stealing_2b
+* sac_fly
+* single
+* strikeout
+* strikeout_double_play
+* triple
+* walk
+
+### Description of Resulting Pitch 
+* ball
+* blocked_ball
+* called_strike
+* foul
+* foul_bunt
+* foul_tip
+* hit_by_pitch
+* hit_into_play
+* hit_into_play_no_out
+* hit_into_play_score
+* missed_bunt
+* pitchout
+* swinging_strike
+* swinging_strike_blocked
+
 
 ## Initial Clustering
 We will begin by clustering the success/failure rate for each pitch type for each location.
