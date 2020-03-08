@@ -12,6 +12,18 @@ Ideally, we would like to be able to analyze and display all MLB hitters with an
 5. Mike Trout (545361)
 6. Christian Yelich (592885)
 
+### Pitch Types
+* CH: Change-up
+* CU: Curveball
+* FC: Cutter
+* FF: Four-Seam Fastball
+* FS: Splitter
+* FT: Two-Seam Fastball (synonymous with SI)
+* KC: Knuckle Curve
+* KN: Knuckleball
+* null
+* SI: Sinker (synonymous with FT)
+* SL: Slider 
 
 ## Initial Clustering
 We will begin by clustering the success/failure rate for each pitch type for each location.
