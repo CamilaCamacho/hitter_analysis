@@ -85,6 +85,11 @@ Baserunning event that occurs during the plate appearance.
 ### Zones: Location of ball as it crosses plate (catcher's perspective)
 ![Gameday Zones](https://github.com/CamilaCamacho/hitter_analysis/blob/master/screenshots/gameday-zones.png)
 
+#### Plate X & Plate Z
+Plate X and Plate Z are horiz and vert pitch location 
+(Plate X = feet to R or L of center of the plate, Plate Z = height above ground). 
+I *think* Normalized Plate X/Z prob adjusts for different strike zones of different batters, but not 100% sure (I never use the normalized ones)
+
 ## Initial Clustering
 We will begin by clustering the success/failure rate for each pitch type for each location.
 Success/failure will be determined by 
