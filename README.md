@@ -85,6 +85,11 @@ Baserunning event that occurs during the plate appearance.
 ### Zones: Location of ball as it crosses plate (catcher's perspective)
 ![Gameday Zones](https://github.com/CamilaCamacho/hitter_analysis/blob/master/screenshots/gameday-zones.png)
 
+Length of strike zone is 17 inches- length of home plate. 
+Height of strike zone is distance between batter's knees and the midpoint of their torso. Top of strike zone is the midpoint betweek the top of the batter's shoulders and the top of the uniform pants. 
+the bottom of the stirke zone is at the hollow beneath the kneecap, both determined by the bater's stance as the batter prepares to swing. 
+On average, between 1.5 and 3.5 feet off the ground.
+
 #### Plate X & Plate Z
 Plate X and Plate Z are horiz and vert pitch location 
 indicating the horizontal and vertical position (in feet) of the ball as it crosses the front of home plate, where the center of the plate at ground level corresponds to the point (0, 0). Since the vertical limits of the strike zone depend on the height and and stance of the batter, MLBAM also provides parameters sz_top and sz_bot, which estimate the top and bottom of the strike zone for each batter.
