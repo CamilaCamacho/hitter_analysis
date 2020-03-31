@@ -87,6 +87,8 @@ Baserunning event that occurs during the plate appearance.
 
 #### Plate X & Plate Z
 Plate X and Plate Z are horiz and vert pitch location 
+indicating the horizontal and vertical position (in feet) of the ball as it crosses the front of home plate, where the center of the plate at ground level corresponds to the point (0, 0). Since the vertical limits of the strike zone depend on the height and and stance of the batter, MLBAM also provides parameters sz_top and sz_bot, which estimate the top and bottom of the strike zone for each batter.
+
 (Plate X = feet to R or L of center of the plate, Plate Z = height above ground). 
 I *think* Normalized Plate X/Z prob adjusts for different strike zones of different batters, but not 100% sure (I never use the normalized ones)
 
