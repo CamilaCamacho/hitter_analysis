@@ -14,6 +14,11 @@ Ideally, we would like to be able to analyze and display all MLB hitters with an
 
 [Statcast Search Documentation](https://baseballsavant.mlb.com/csv-docs#events) gives brief descriptions of CSV data. Analysis will be done using [this Excel doc](https://github.com/CamilaCamacho/hitter_analysis/blob/master/savant_data_analysis_6_pitchers.xlsx) where redundant/deprecated data has been deleted and useful data has been reorganized. Below you'll find a more in-depth description of relevant data-points found in this data set.
 
+### Pitch ID
+Since the pitch_id field is deprecated, we will be creating our own unique pitch id using:
+* game_pk: Unique Id for Game
+* sv_id: Non-unique Id of play event per game
+
 ### Pitch Types
 * CH: Change-up
 * CU: Curveball
