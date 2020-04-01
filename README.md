@@ -17,7 +17,7 @@ Ideally, we would like to be able to analyze and display all MLB hitters with an
 ### Pitch ID
 Since the pitch_id field is deprecated, we will be creating our own unique pitch id using:
 * game_pk: Unique Id for Game
-* sv_id: Non-unique Id of play event per game
+* sv_id: Non-unique Id of play event per game (a date/time stamp of when the PITCHf/x tracking system first detected the pitch in the air, it is in the format YYMMDD_hhmmss.)
 
 ### Pitch Types
 * CH: Change-up
