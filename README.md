@@ -4,7 +4,7 @@ Analyzing the success/failure rate per pitch type per location for MLB hitters.
 Ideally, we would like to be able to analyze and display all MLB hitters with an understanding of who the pitcher is and use clusterings of pitchers to show how the batter will respond to specific pitchers.
 
 ## Original Data Set
-[This CSV file](https://github.com/CamilaCamacho/hitter_analysis/blob/master/savant_data_6_pitchers.csv) has all 2019 Regular Season [Savant data from Statcast Search](https://baseballsavant.mlb.com/statcast_search?hfPT=&hfAB=&hfBBT=&hfPR=&hfZ=&stadium=&hfBBL=&hfNewZones=&hfGT=R%7C&hfC=&hfSea=2019%7C&hfSit=&player_type=pitcher&hfOuts=&opponent=&pitcher_throws=&batter_stands=&hfSA=&game_date_gt=&game_date_lt=&hfInfield=&team=&position=&hfOutfield=&hfRO=&home_road=&batters_lookup%5B%5D=660670&batters_lookup%5B%5D=641313&batters_lookup%5B%5D=641355&batters_lookup%5B%5D=593160&batters_lookup%5B%5D=545361&batters_lookup%5B%5D=592885&hfFlag=&hfPull=&metric_1=&hfInn=&min_pitches=0&min_results=0&group_by=name&sort_col=pitches&player_event_sort=h_launch_speed&sort_order=desc&min_pas=0#results) for the following 6 hitters/batters: 
+[This CSV file](https://github.com/CamilaCamacho/hitter_analysis/blob/master/savant_data_6_pitchers.csv) has all 2019 Regular Season [Savant data from Statcast Search](https://baseballsavant.mlb.com/statcast_search?hfPT=&hfAB=&hfBBT=&hfPR=&hfZ=&stadium=&hfBBL=&hfNewZones=&hfGT=R%7C&hfC=&hfSea=2019%7C&hfSit=&player_type=pitcher&hfOuts=&opponent=&pitcher_throws=&batter_stands=&hfSA=&game_date_gt=&game_date_lt=&hfInfield=&team=&position=&hfOutfield=&hfRO=&home_road=&batters_lookup%5B%5D=660670&batters_lookup%5B%5D=641313&batters_lookup%5B%5D=641355&batters_lookup%5B%5D=593160&batters_lookup%5B%5D=545361&batters_lookup%5B%5D=592885&hfFlag=&hfPull=&metric_1=&hfInn=&min_pitches=0&min_results=0&group_by=name&sort_col=pitches&player_event_sort=h_launch_speed&sort_order=desc&min_pas=0#results) for the following 6 hitters/batters (player_id): 
 1. Ronald Acuna Jr. (660670)
 2. Tim Anderson (641313)
 3. Cody Bellinger (641355)
@@ -90,7 +90,9 @@ Baserunning event that occurs during the plate appearance.
 ### Zones: Location of ball as it crosses plate (catcher's perspective)
 ![Gameday Zones](https://github.com/CamilaCamacho/hitter_analysis/blob/master/screenshots/gameday-zones.png)
 
-Length of strike zone is 17 inches- length of home plate. 
+// TODO: include new zone pic
+
+Length of strike zone is 17 inches- length of home plate.
 Height of strike zone is distance between batter's knees and the midpoint of their torso. Top of strike zone is the midpoint betweek the top of the batter's shoulders and the top of the uniform pants. 
 the bottom of the stirke zone is at the hollow beneath the kneecap, both determined by the bater's stance as the batter prepares to swing. 
 On average, between 1.5 and 3.5 feet off the ground.
