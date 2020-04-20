@@ -92,7 +92,7 @@ Baserunning event that occurs during the plate appearance.
 ### Zones: Location of ball as it crosses plate (catcher's perspective)
 ![Gameday Zones](https://github.com/CamilaCamacho/hitter_analysis/blob/master/screenshots/gameday-zones.png)
 
-// TODO: include new zone pic
+// @MOMO TODO: include new zone pic
 
 Length of strike zone is 17 inches- length of home plate.
 Height of strike zone is distance between batter's knees and the midpoint of their torso. Top of strike zone is the midpoint betweek the top of the batter's shoulders and the top of the uniform pants. 
