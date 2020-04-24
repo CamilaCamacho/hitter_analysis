@@ -28,29 +28,31 @@
 </template>
 
 <script>
-  import axios from 'axios';
-  export default {
-    data() {
-      return {
-        courses: [],
-      };
+import axios from 'axios';
+
+export default {
+  data() {
+    return {
+      courses: [],
+    };
+  },
+  methods: {
+    getCourses() {
+      const path = 'http://127.0.0.1:5000/courses';
+      axios.get(path)
+        .then((res) => {
+          this.courses = res.data.courses;
+        })
+        .catch((error) => {
+          // eslint-disable-next-line
+          console.error(error);
+        });
     },
-    methods: {
-      getCourses() {
-        const path = 'http://localhost:5000/courses';
-        axios.get(path)
-          .then((res) => {
-            this.courses = res.data.courses;
-          })
-          .catch((error) => {
-            console.error(error);
-          });
-      },
-    },
-    created() {
-      this.getCourses();
-    },
-  };
+  },
+  created() {
+    this.getCourses();
+  },
+};
 </script>
 
 <style scoped>
