@@ -1,6 +1,7 @@
 .DS_Store
 __pycache__/
 node_modules/
+.ipynb_checkpoints/
 
 # Editor directories and files
-.idea
+.idea/
