@@ -1,3 +1,8 @@
+
+from flask import Flask, jsonify
+from flask_cors import CORS
+# from flask_mongoengine import MongoEngine
+
 COURSES = [
     {
         'title': 'Effective JavaScript: 68 Specific Ways to Harness the Power of JavaScript ',
@@ -16,11 +21,6 @@ COURSES = [
     }
 ]
 
-from flask import Flask, jsonify
-from flask_cors import CORS
-# from flask_mongoengine import MongoEngine
-
-
 # configuration
 DEBUG = True
 
@@ -36,11 +36,13 @@ app.config.from_object(__name__)
 # r'/*' to r'/api/*'
 CORS(app, resources={r'/*': {'origins': '*'}})
 
+
 # sanity check route
 @app.route('/ping', methods=['GET'])
 # @cross_origin() # this allows CORS on a given route
 def ping_pong():
     return jsonify('pong')
+
 
 @app.route('/courses', methods=['GET'])
 def all_courses():
@@ -49,9 +51,11 @@ def all_courses():
         'courses': COURSES
     })
 
+
 @app.route('/strikeemout', methods=['GET'])
 def strikeemout():
     return jsonify('Strike Out!')
+
 
 if __name__ == '__main__':
     app.run()
