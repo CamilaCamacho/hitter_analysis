@@ -2,8 +2,17 @@
 
 Analyzing the success rate of different pitch types for a given pitcher cluster within the determined strike zone for MLB hitters. 
 
-Analyzing the success/failure rate per pitch type per location for MLB hitters. 
+The website www.strike-em-out.jhu.edu analyzes and displays the success/failure rate for different pitch types in the strikezone of Major League Baseball (MLB) batters. The analysis takes into account the velocity and movement of pitches, as well as the circumstances of the game. Pitchers can be clustered to similar pitchers to see how a 
+
 Ideally, we would like to be able to analyze and display all MLB hitters with an understanding of who the pitcher is and use clusterings of pitchers to show how the batter will respond to specific pitchers.
+
+
+analysis and display all Major League Baseball (MLB)
+hitters with an understanding of who the pitcher is, the
+velocity of the pitch, and some situational markers
+from the inning. It will use clustering of pitchers to
+show how the batter will respond to these specific
+pitchers.
 
 ## Original Data Set
 [This CSV file](https://github.com/CamilaCamacho/hitter_analysis/blob/master/savant_data_6_pitchers.csv) has all 2019 Regular Season [Savant data from Statcast Search](https://baseballsavant.mlb.com/statcast_search?hfPT=&hfAB=&hfBBT=&hfPR=&hfZ=&stadium=&hfBBL=&hfNewZones=&hfGT=R%7C&hfC=&hfSea=2019%7C&hfSit=&player_type=pitcher&hfOuts=&opponent=&pitcher_throws=&batter_stands=&hfSA=&game_date_gt=&game_date_lt=&hfInfield=&team=&position=&hfOutfield=&hfRO=&home_road=&batters_lookup%5B%5D=660670&batters_lookup%5B%5D=641313&batters_lookup%5B%5D=641355&batters_lookup%5B%5D=593160&batters_lookup%5B%5D=545361&batters_lookup%5B%5D=592885&hfFlag=&hfPull=&metric_1=&hfInn=&min_pitches=0&min_results=0&group_by=name&sort_col=pitches&player_event_sort=h_launch_speed&sort_order=desc&min_pas=0#results) for the following 6 hitters/batters (player_id): 
