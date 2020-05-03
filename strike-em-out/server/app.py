@@ -18,6 +18,7 @@ COURSES = [
 
 from flask import Flask, jsonify
 from flask_cors import CORS
+from flask_mongoengine import MongoEngine
 
 
 # configuration
@@ -26,7 +27,8 @@ DEBUG = True
 # instantiate the app
 app = Flask(__name__)
 app.config.from_object(__name__)
-
+app.config.from_pyfile('the-config.cfg')
+db = MongoEngine(app)
 
 @app.route('/courses', methods=['GET'])
 def all_courses():
