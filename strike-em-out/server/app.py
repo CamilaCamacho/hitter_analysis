@@ -30,6 +30,17 @@ app.config.from_object(__name__)
 # app.config.from_pyfile('the-config.cfg')
 # db = MongoEngine(app)
 
+# enable CORS
+# needed to make cross-origin AJAX requests possible
+# this is resource specific CORS
+# r'/*' to r'/api/*'
+CORS(app, resources={r'/*': {'origins': '*'}})
+
+# sanity check route
+@app.route('/ping', methods=['GET'])
+# @cross_origin() # this allows CORS on a given route
+def ping_pong():
+    return jsonify('pong')
 
 @app.route('/courses', methods=['GET'])
 def all_courses():
@@ -38,20 +49,9 @@ def all_courses():
         'courses': COURSES
     })
 
-
-# enable CORS
-# needed to make cross-origin AJAX requests possible
-# this is resource specific CORS
-# r'/*' to r'/api/*'
-CORS(app, resources={r'/*': {'origins': '*'}})
-
-
-# sanity check route
-@app.route('/ping', methods=['GET'])
-# @cross_origin() # this allows CORS on a given route
-def pin_pong():
-    return jsonify('pong')
-
+@app.route('/strikeemout', methods=['GET'])
+def strikeemout():
+    return jsonify('Strike Out!')
 
 if __name__ == '__main__':
     app.run()
