@@ -1,7 +1,7 @@
 
 from flask import Flask, jsonify
 from flask_cors import CORS
-# from flask_mongoengine import MongoEngine
+from flask_mongoengine import MongoEngine
 
 COURSES = [
     {
@@ -27,8 +27,12 @@ DEBUG = True
 # instantiate the app
 app = Flask(__name__)
 app.config.from_object(__name__)
-# app.config.from_pyfile('the-config.cfg')
-# db = MongoEngine(app)
+app.config['MONGODB_SETTINGS'] = {
+    'db': 'sixBatters',
+    'host': '192.168.1.89',
+    'port': 27017
+}
+db = MongoEngine(app)
 
 # enable CORS
 # needed to make cross-origin AJAX requests possible
