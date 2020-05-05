@@ -1,18 +1,11 @@
 <template>
   <div class="container-fluid">
-    <!--
-    <h1>This is the Strike Em Out page</h1>
-    <div class="container-fluid">
-      <button type="button" class="btn btn-primary">{{ msg }}</button>
-    </div>
-    -->
-    <!--<div class="display-4">Strike 'em Out</div>-->
-    <b-row>
-      <!-- Left Column-->
+    <!-- Top Select -->
+    <b-row class="mb-3">
       <b-col>
-        <div class="display-2">Strike 'em Out</div>
+        <div class="display-3">Strike 'em Out</div>
         <!-- Select Pitcher -->
-        <b-row align-v="center" align-h="center" class="mt-5 mb-3">
+        <b-row align-v="center" align-h="center" class="mt-3 mb-3">
           <b-select v-model="selectedPitcher" class="mr-2" style="width: 50%;">
             <b-select-option disabled value='null'>-- Select a pitcher --</b-select-option>
             <b-select-option v-for="pitcher in pitchers"
@@ -24,21 +17,8 @@
             Group like pitchers
           </b-form-checkbox>
         </b-row>
-        <!-- Advanced Settings -->
-        <b-card title="Advanced Settings" bg-variant="light" class="ml-5 mr-5 mb-5">
-          <b-form-group>
-            <b-form-checkbox-group v-model="baseRunners" :options="onBase" buttons class="mb-3"/>
-            <b-form-radio-group v-model="alpha" :options="alphas" buttons class="mb-3"/>
-            <b-form-radio-group v-model="sampleSize" :options="sampleSizes" buttons/>
-          </b-form-group>
-        </b-card>
-        <!-- Power Sequences -->
-        <b-card title="Power Sequences" bg-variant="light" class="ml-5 mr-5">
-          <b-table :items="sequences"/>
-        </b-card>
       </b-col>
-      <!-- Right Column-->
-      <b-col class="mr-5">
+      <b-col align-self="center">
         <!-- Select Team -->
         <b-row align-h="center">
           <b-select v-model="selectedTeam" class="mb-1" size="lg" style="width: 75%;">
@@ -54,18 +34,59 @@
           <b-select v-model="selectedPlayer" size="lg" style="width: 75%">
             <b-select-option disabled value=''>-- Select a player --</b-select-option>
             <b-select-option v-for="player in selectedTeam.players"
-                             v-bind:key="player" v-bind:value="player">
+                             v-bind:value="player" v-bind:key="player">
               {{ player }}
             </b-select-option>
           </b-select>
         </b-row>
-        <!--
-        <p v-if="selectedTeam&&selectedPlayer">
-          You selected a {{ selectedTeam.label }} and specifically {{ selectedPlayer }}.
-        </p>
-        -->
+      </b-col>
+    </b-row>
+    <!-- Bottom Select -->
+    <b-row>
+      <!-- Left Column-->
+      <b-col>
+        <!-- Power Sequences -->
+        <b-card title="Power Sequences" bg-variant="light" class="ml-5 mr-5 mb-3">
+          <b-table :items="sequences"/>
+        </b-card>
+        <!-- Legend -->
+        <b-card title="Legend" bg-variant="light" class="ml-5 mr-5 mb-3">
+          <p>RED: High Likelihood of Contact</p>
+          <p>YELLOW: Medium Likelihood of Contact</p>
+          <p>GREEN: Low Likelihood of Contact</p>
+        </b-card>
+        <!-- Advanced Settings -->
+        <b-button v-b-toggle.advanced-settings size="sm">Advanced Settings</b-button>
+        <b-collapse id="advanced-settings" class="mt-3">
+          <b-card class="ml-5 mr-5">
+            <!-- Runners on Base-->
+            <b-row align-h="center">
+              <b-form-radio-group v-model="baseRunners" :options="onBase"
+                                  buttons button-variant="light" class="mb-3"/>
+            </b-row>
+            <!-- Sample Size -->
+            <b-row align-h="center" align-v="center" class="mb-3">
+              <label for="sb-inline" class="mb-0">Sample Size</label>
+              <font-awesome-icon id="sample-size-info" href="#" tabindex="0"
+                                 :icon="['fas', 'info-circle']" class="ml-1 mr-3"/>
+              <b-popover target="sample-size-info" placement="left" triggers="focus"
+                         title="Sample Size">
+                Total pitches per pitch type <br> where batter swung.
+              </b-popover>
+              <b-form-spinbutton id="sb-inline" min="1" max="15" v-model="sampleSize" wrap inline/>
+            </b-row>
+            <!-- Alpha Values
+            <b-row align-h="center">
+              <b-form-radio-group v-model="alpha" :options="alphas"
+                                  buttons button-variant="light"/>
+            </b-row> -->
+          </b-card>
+        </b-collapse>
+      </b-col>
+      <!-- Player and Strike-zone-->
+      <b-col>
         <img src="../assets/Batter_at_bat.png" alt="Batter at bat"
-             style="height: 815px; width: 550px;"/>
+             style="height: 915px; width: 650px;"/>
       </b-col>
     </b-row>
   </div>
@@ -90,9 +111,8 @@ export default {
 
       baseRunners: '',
       onBase: [
-        { text: 'First Base', value: '1' },
-        { text: 'Second Base', value: '2' },
-        { text: 'Third Base', value: '3' },
+        { text: 'Runners on First and/or Second Base', value: '1' },
+        { text: 'No Runners on Base or Runner on Third Base', value: '2' },
       ],
 
       alpha: '2',
@@ -102,12 +122,7 @@ export default {
         { text: 'alpha value 3', value: '3' },
       ],
 
-      sampleSize: '1',
-      sampleSizes: [
-        { text: 'sample size 1', value: '1' },
-        { text: 'sample size 2', value: '2' },
-        { text: 'sample size 3', value: '3' },
-      ],
+      sampleSize: '5',
 
       sequences: [
         {
