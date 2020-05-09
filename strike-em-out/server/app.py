@@ -12,6 +12,7 @@ client = MongoClient("mongodb://localhost:27017") # connects to client locally
 dbUsing = client["sixBatters"] # get the database
 collectionUse = dbUsing["batters"] # get the connection
 #print(collectionUse.find_one({'game_pk': 566551}))
+
 # configuration
 DEBUG = True
 
@@ -51,27 +52,6 @@ def all_courses():
         'status': 'success',
         'courses': COURSES
     })
-
-#momo added this for testing sixbatters db
-# @app.route('/ping')
-# def get_batterName():
-#     name = mongo.db.sixBatters.find({"pitcher_name": "Sam Selman"})
-#     return render_template("index.html", name = name)
-#
-# #momo added this for testing sixbatters db
-# @app.route('/ping', methods=['GET'])
-# def get_batterNames():
-#     #name = sixBatters.batters({pitcher_name: "Sam Selman"})
-#     return jsonify("Momo")
-
-# #momo added this for testing sixbatters db
-# @app.route('/ping', methods=['GET'])
-# def push_pitchtype():
-#     #body = request.get_json()
-#     # Batters = batters(**body).save()
-#     pitch_type = Batters.pitch_type
-#     return {'pitch_type': str(pitch_type)}, 200
-
 
 @app.route('/strikeemout', methods=['GET'])
 def strikeemout():
