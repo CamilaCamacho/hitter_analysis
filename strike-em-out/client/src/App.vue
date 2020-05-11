@@ -5,8 +5,7 @@
       <router-link to="/about">About</router-link> |
       <router-link to="/ping">Ping</router-link> |
       <router-link to="/courses">Courses</router-link> |
-      <router-link to="/strikeemout">Strike 'em Out</router-link> |
-      <router-link to="/momotest">Momo's Test</router-link>
+      <router-link to="/strikeemout">Strike 'em Out</router-link>
     </div>
     <router-view/>
   </div>

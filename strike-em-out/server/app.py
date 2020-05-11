@@ -9,8 +9,9 @@ from db import initialize_db
 
 from pymongo import MongoClient
 client = MongoClient("mongodb://localhost:27017") # connects to client locally
-dbUsing = client["sixBatters"] # get the database
-collectionUse = dbUsing["batters"] # get the connection
+db_using = client["season2019"] # get the database
+main_collection = db_using["battingData"] # get the collection
+team_collection = db_using["teamBatterId"] # get the connection
 #print(collectionUse.find_one({'game_pk': 566551}))
 
 # configuration
@@ -36,15 +37,24 @@ app.config.from_object(__name__)
 # r'/*' to r'/api/*'
 CORS(app, resources={r'/*': {'origins': '*'}})
 
-# sanity check route
+
+# print("success1")
+# @app.route('/ping', methods=['GET'])
+# # @cross_origin() # this allows CORS on a given route
+# def ping_pong():
+#     event = main_collection.find_one({'game_pk': 566551})
+#     name = event['pitcher_name']
+#     return jsonify(name)
+#     #return jsonify(name = name)
+
 print("success1")
-@app.route('/ping', methods=['GET'])
+@app.route('/strikeemout', methods=['GET'])
 # @cross_origin() # this allows CORS on a given route
-def ping_pong():
-    event = collectionUse.find_one({'game_pk': 566551})
-    name = event['pitcher_name']
-    return jsonify(name)
-    #return jsonify(name = name)
+def get_team_name():
+    team_name = []
+    for item in team_collection.find():
+        team_name.append(item['\ufeffTEAM'])
+    return jsonify(team_name)
 
 @app.route('/courses', methods=['GET'])
 def all_courses():
