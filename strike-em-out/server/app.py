@@ -11,7 +11,7 @@ from pymongo import MongoClient
 client = MongoClient("mongodb://localhost:27017") # connects to client locally
 db_using = client["season2019"] # get the database
 main_collection = db_using["battingData"] # get the collection
-team_collection = db_using["teamBatterId"] # get the connection
+team_collection = db_using["teamPlayerId"] # get the connection
 #print(collectionUse.find_one({'game_pk': 566551}))
 
 # configuration
@@ -50,10 +50,10 @@ CORS(app, resources={r'/*': {'origins': '*'}})
 print("success1")
 @app.route('/strikeemout', methods=['GET'])
 # @cross_origin() # this allows CORS on a given route
-def get_team_name():
+def get_team_names():
     team_name = []
     for item in team_collection.find():
-        team_name.append(item['\ufeffTEAM'])
+        team_name.append(item['mlb_team_long'])
     return jsonify(team_name)
 
 @app.route('/courses', methods=['GET'])
