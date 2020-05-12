@@ -57,16 +57,16 @@ def get_team_names():
             team_name.append(item['mlb_team_long'])
     return jsonify(team_name)
 
-print("success2")
-@app.route('/strikeemout', methods=['GET'])
-# @cross_origin() # this allows CORS on a given route
-def get_player_names():
-    #selected_team needs to be user input
-    selected_team = 'Los Angeles Angels'
-    player_name = []
-    for item in team_collection.find({'mlb_team_long': selected_team}):
-        player_name.append(item['mlb_name'])
-    return jsonify(player_name)
+# print("success2")
+# @app.route('/strikeemout', methods=['GET'])
+# # @cross_origin() # this allows CORS on a given route
+# def get_player_names():
+#     #selected_team needs to be user input
+#     selected_team = 'Los Angeles Angels'
+#     player_name = []
+#     for item in team_collection.find({'mlb_team_long': selected_team}):
+#         player_name.append(item['mlb_name'])
+#     return jsonify(player_name)
 
 @app.route('/courses', methods=['GET'])
 def all_courses():
