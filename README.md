@@ -2,22 +2,17 @@
 
 Analyzing the success rate of different pitch types for a given pitcher cluster within the determined strike zone for MLB hitters. 
 
-The website www.strike-em-out.jhu.edu analyzes and displays the success/failure rate for different pitch types in the strikezone of Major League Baseball (MLB) batters. The analysis takes into account the velocity and movement of pitches, as well as the circumstances of the game. Pitchers can be clustered to similar pitchers to see how a 
-
-Ideally, we would like to be able to analyze and display all MLB hitters with an understanding of who the pitcher is and use clusterings of pitchers to show how the batter will respond to specific pitchers.
-
-
-analysis and display all Major League Baseball (MLB)
-hitters with an understanding of who the pitcher is, the
-velocity of the pitch, and some situational markers
-from the inning. It will use clustering of pitchers to
-show how the batter will respond to these specific
-pitchers.
+The website www.strike-em-out.jhu.edu analyzes and displays the success/failure rate for different pitch types in the strikezone of Major League Baseball (MLB) batters depending on who the pitcher is as well as the circumstances of the game. The analysis takes into account the velocity and movement of pitches to cluster similar pitch types of different pitchers together. 
 
 ## 2019 Regular Season Data Set Documentation
-... 
 
-[Statcast Search Documentation](https://baseballsavant.mlb.com/csv-docs#events) gives brief descriptions of the CSV data. Analysis will be done using [this Excel doc](https://github.com/CamilaCamacho/hitter_analysis/blob/master/savant_data_analysis_6_pitchers.xlsx) where redundant/deprecated data has been deleted and useful data has been reorganized. Below you'll find a more in-depth description of relevant data-points found in this data set.
+[Edited 2019 Regular Season Data Set JSON file](https://github.com/CamilaCamacho/hitter_analysis/blob/master/CleanedUpForDB-final.json) is taken from [2019 Regular Season Data Set CSV file]() but paired down to the more relevant data points. 
+
+
+[Statcast Search Documentation](https://baseballsavant.mlb.com/csv-docs#events) gives brief descriptions of the CSV data. 
+
+
+[2019 MLB Regular Season data set]() from Statcast was edited down to relevant data points to [2019 Regular Season (CleanedUpForDB) CSV](). Then, [other calculations were done](https://github.com/CamilaCamacho/hitter_analysis/blob/master/DB_Filtering_Computations.ipynb) to find which zone and pitch type clustering each pitch falls into to create [a database of all pitches ](https://github.com/CamilaCamacho/hitter_analysis/blob/master/all_2019_pitches.json).
 
 ### Pitch ID
 Since the pitch_id field is deprecated, we will be creating our own unique pitch id using:
@@ -27,6 +22,7 @@ Since the pitch_id field is deprecated, we will be creating our own unique pitch
 
 
 ### Pitch Types
+**The type of pitch derived from Statcast**
 * CH: Change-up
 * CU: Curveball
 * EP: Eephus
@@ -42,7 +38,8 @@ Since the pitch_id field is deprecated, we will be creating our own unique pitch
 
 Pitch Types not present in this dataset: AB, AS, GY, IN, NP, PO, SC, UN
 
-### Description of Resulting Pitch 
+### Description: 
+**Description of the resulting pitch**
 * ball
 * blocked_ball
 * called_strike
@@ -58,8 +55,8 @@ Pitch Types not present in this dataset: AB, AS, GY, IN, NP, PO, SC, UN
 * swinging_strike
 * swinging_strike_blocked
 
-### Events: Result of Plate Appearance
-Baserunning event that occurs during the plate appearance. 
+### Events: 
+**Baserunning Event that occurs during the Plate Appearance**
 * catcher_interf
 * caught_stealing_2b
 * double
@@ -82,28 +79,29 @@ Baserunning event that occurs during the plate appearance.
 * triple
 * walk
 
-### Zones: Location of ball as it crosses plate 
+#### Plate_-X & Plate_Z:
+**Horizontal & Vertical position of the ball when it crosses home plate from the pitcher's perspective**
+_Note: Plate\_-x is different from statcast's plate\_x, it's the negated version so that is from pitcher's perspective_
 
-![Strike Zone Coordinates]()
+The center of home plate is at ground level and corresponds to point (0,0).
 
-Length of strike zone is 17 inches- length of home plate.
-Height of strike zone is distance between batter's knees and the midpoint of their torso. Top of strike zone is the midpoint betweek the top of the batter's shoulders and the top of the uniform pants. 
-the bottom of the stirke zone is at the hollow beneath the kneecap, both determined by the bater's stance as the batter prepares to swing. 
-On average, between 1.5 and 3.5 feet off the ground.
+Plate -X = distance of ball in feet to the right (positive) or left (negative) of center of plate 
+Plate Z = hight of ball in feet above the ground
 
 
-![Gameday Zones from catcher's perspective](https://github.com/CamilaCamacho/hitter_analysis/blob/master/screenshots/gameday-zones.png)
+Since the vertical limits of the strikezone depend on the height and and stance of the batter, MLBAM also provides parameters sz_top and sz_bot, which estimate the top and bottom of the strike zone for each batter.
+
+### Zones: 
+**Location of the ball when it crosses the plate from the pitcher's perspective**
+_Note: Our strikezone is different from [statcast's gameday zone](https://github.com/CamilaCamacho/hitter_analysis/blob/master/screenshots/gameday-zones.png) that is from catcher's perspective_
 
 ![Our Strike Zone](https://github.com/CamilaCamacho/hitter_analysis/blob/master/screenshots/StrikeZone21Sections.png)
 
+Length of strike zone is 17 inches, aka the length of home plate.
+Height of strike zone is the distance between batter's knees (sz_bot in Statcast data) and the midpoint of their torso (sz_top in Statcast data). 
 
-#### Plate X & Plate Z
-Plate X and Plate Z are horiz and vert pitch location 
-indicating the horizontal and vertical position (in feet) of the ball as it crosses the front of home plate, where the center of the plate at ground level corresponds to the point (0, 0). Since the vertical limits of the strike zone depend on the height and and stance of the batter, MLBAM also provides parameters sz_top and sz_bot, which estimate the top and bottom of the strike zone for each batter.
+On average, this between 1.5 and 3.5 feet off the ground but we've calculated the strikezone based on the sz_bot & sz_top of each player at bat.
 
-(Plate X = feet to R or L of center of the plate, Plate Z = height above ground). 
-I *think* Normalized Plate X/Z prob adjusts for different strike zones of different batters, but not 100% sure (I never use the normalized ones)
 
-## Initial Clustering
-We will begin by clustering the success/failure rate for each pitch type for each location.
-Success/failure will be determined by 
+### Initial Clustering
+...
